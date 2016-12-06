@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author jose
+ * @author joselete
  */
 public class CardDealer {
     private static final CardDealer instance = new CardDealer();
