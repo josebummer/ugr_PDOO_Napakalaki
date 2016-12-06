@@ -147,6 +147,26 @@ public class CardDealer {
         BadConsequence bc19 = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS,TreasureKind.ONEHAND)),new ArrayList());
         Prize prize19 = new Prize(2,1);
         unusedMonsters.add(new Monster("Bicéfalo",21,bc19,prize19));
+        
+        BadConsequence bc20 = new BadConsequence("Pierdes 1 mano visible.",0,new ArrayList(Arrays.asList(TreasureKind.ONEHAND)),new ArrayList());
+        Prize prize20 = new Prize(3,1);
+        unusedMonsters.add(new Monster("El mal indecible impronunciable.",10,bc20,prize20,-2));
+        
+        BadConsequence bc21 = new BadConsequence("Pierdes tus tesoros visibles. Jajaja.",0,BadConsequence.getMaxTreasures(),0);
+        Prize prize21 = new Prize(2,1);
+        unusedMonsters.add(new Monster("Testigos oculares.",6,bc21,prize21,2));
+        
+        BadConsequence bc22 = new BadConsequence("Hoy no es tu dia de suerte. Mueres.",true);
+        Prize prize22 = new Prize(2,5);
+        unusedMonsters.add(new Monster("El gran cthulhu.",6,bc22,prize22,4));
+        
+        BadConsequence bc23 = new BadConsequence("Tu gobierno te recorta 2 niveles.",2,0,0);
+        Prize prize23 = new Prize(2,1);
+        unusedMonsters.add(new Monster("Serpiente Politico.",8,bc23,prize23,-2));
+        
+        BadConsequence bc24 = new BadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR,TreasureKind.HELMET)),new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS,TreasureKind.ONEHAND,TreasureKind.ONEHAND)));
+        Prize prize24 = new Prize(1,1);
+        unusedMonsters.add(new Monster("Felpuggoth.",2,bc24,prize24,5));
    
     }
    

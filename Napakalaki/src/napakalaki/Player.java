@@ -23,7 +23,7 @@ public class Player {
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
     private BadConsequence pendingBadConsequence;
-    private Player enemy;
+    protected Player enemy;
    
    
     public Player(String name){
@@ -35,16 +35,31 @@ public class Player {
         dead = true;
         pendingBadConsequence = null;
     }
+    
+    public Player(Player p){
+        this.name = p.getName();
+        level = p.getLevels();
+        hiddenTreasures = new ArrayList(p.getHiddenTreasures());
+        visibleTreasures = new ArrayList(p.getVisibleTreasures());
+        canISteal = p.canISteal();
+        dead = p.dead;
+        pendingBadConsequence = p.pendingBadConsequence;
+    }
    
     public String getName()
     {
     return name;
     }
+    
+    
+    /*protected int getOponentLevel(Monster m){}*/
+    
+    
     private void bringToLife(){
         dead = false;
     }
    
-    private int getCombatLevel()
+    protected int getCombatLevel()
     {
         int cl = level;
         for( Treasure t: visibleTreasures ){
@@ -304,6 +319,11 @@ public class Player {
     private void dieIfNoTreasures(){
         dead = true;
     }
+    
+    
+    /*protected boolean shouldConvert(){}*/
+    
+    
     public String toString(){
         return "\nNombre: " + name + " Nivel: " + Integer.toString(level) + " Nivel de combate: " + this.getCombatLevel() +
                 "\nMuerte: " + dead + "\nPuede robar: " + canISteal + "\nTesoros ocultos: " + hiddenTreasures +
