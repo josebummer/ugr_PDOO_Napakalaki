@@ -167,6 +167,14 @@ public class CardDealer {
         BadConsequence bc24 = new BadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.",0,new ArrayList(Arrays.asList(TreasureKind.ARMOR,TreasureKind.HELMET)),new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS,TreasureKind.ONEHAND,TreasureKind.ONEHAND)));
         Prize prize24 = new Prize(1,1);
         unusedMonsters.add(new Monster("Felpuggoth.",2,bc24,prize24,5));
+        
+        BadConsequence bc25 = new BadConsequence("Pierdes 2 niveles.",2,0,0);
+        Prize prize25 = new Prize(4,2);
+        unusedMonsters.add(new Monster("Shoggoth.",16,bc25,prize25,-4));
+        
+        BadConsequence bc26 = new BadConsequence("Pintalabios negro. Pierdes 2 niveles.",2,0,0);
+        Prize prize26 = new Prize(1,1);
+        unusedMonsters.add(new Monster("Lolitagooth.",2,bc26,prize26,3));
    
     }
    
