@@ -18,7 +18,7 @@ public class PruebaNapakalaki {
     static ArrayList<Monster> NvMayor10(){
         ArrayList<Monster> salida = new ArrayList();
         for( Monster m : monstruos){
-            if(m.getcombatLevel()>10){
+            if(m.getCombatLevel()>10){
                 salida.add(m);
             }
         }

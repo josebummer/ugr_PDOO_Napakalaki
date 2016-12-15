@@ -51,9 +51,9 @@ public class Player {
     return name;
     }
     
-    
-    /*protected int getOponentLevel(Monster m){}*/
-    
+    protected Player getEnemy(){
+        return enemy;
+    }
     
     private void bringToLife(){
         dead = false;
@@ -175,7 +175,7 @@ public class Player {
     public CombatResult combat(Monster m){
         CombatResult res;
         int myLevel = this.getCombatLevel();
-        int monsterLevel = m.getcombatLevel();
+        int monsterLevel = this.getOponentLevel(m);
         
         if( !canISteal ){
             Dice dice = Dice.getInstance();
@@ -196,7 +196,13 @@ public class Player {
         }
         else{
             this.applyBadConsequence(m);
+            boolean b = this.shouldConvert();
+            if(b){
+                res = CombatResult.LOSEANDCONVERT;
+            }
+            else{
             res = CombatResult.LOSE;
+            }
         }
         return res;
     }
@@ -320,8 +326,19 @@ public class Player {
         dead = true;
     }
     
+    protected int getOponentLevel(Monster m){
+        return m.getCombatLevel();
+    }
     
-    /*protected boolean shouldConvert(){}*/
+    
+    protected boolean shouldConvert(){
+        Dice dice = Dice.getInstance();
+        int number = dice.nextNumber();
+        if( number == 1 ){
+            return true;
+        }
+        return false;
+    }
     
     
     public String toString(){

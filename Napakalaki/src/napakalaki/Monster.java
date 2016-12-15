@@ -11,33 +11,33 @@ package napakalaki;
  */
 public class Monster {
     private String name;
-    private int combatLevel;
+    private int level;
     private Prize buenrollo;
     private BadConsequence malrollo;
     private int levelChangeAgainstCultistPlayer;
     
-    public Monster( String name , int level , BadConsequence bc , Prize prize , int IC ){
+    public Monster( String name , int p_level , BadConsequence bc , Prize prize , int IC ){
         this.name = name;
-        combatLevel = level;
+        level = p_level;
         buenrollo = prize;
         malrollo = bc;
         levelChangeAgainstCultistPlayer = IC;
     }
-    public Monster( String name , int level , BadConsequence bc , Prize prize){
+    public Monster( String name , int p_level , BadConsequence bc , Prize prize){
         this.name = name;
-        combatLevel = level;
+        level = p_level;
         buenrollo = prize;
         malrollo = bc;
         levelChangeAgainstCultistPlayer = 0;
     }
     public int getCombatLevelAgainstCultistPlayer(){
-        return levelChangeAgainstCultistPlayer;
+        return level + levelChangeAgainstCultistPlayer;
     }
     public String getName(){
         return name;
     }
-    public int getcombatLevel(){
-        return combatLevel;
+    public int getCombatLevel(){
+        return level;
     }
     public BadConsequence getBadConsequence(){
         return malrollo;
@@ -49,7 +49,7 @@ public class Monster {
         return buenrollo.getTreasures();
     }
     public String toString(){
-        return "Nombre: " + name + " Nivel de combate: " + Integer.toString(combatLevel) + 
+        return "Nombre: " + name + " Nivel de combate: " + Integer.toString(level) + 
                 "\nBuen rollo: " + buenrollo.toString() + "\nMal rollo: " + malrollo.toString() + "\n";
     }
 }

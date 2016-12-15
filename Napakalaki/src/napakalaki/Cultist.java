@@ -17,4 +17,8 @@ public class Cultist {
         this.name = name;
         this.gainedLevels = gainedLevels;
     }
+    
+    public int getGainedLevels(){
+        return gainedLevels;
+    }
 }
