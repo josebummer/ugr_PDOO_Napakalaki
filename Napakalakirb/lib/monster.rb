@@ -10,12 +10,14 @@ class Monster
   attr_reader :name
   attr_reader :combatLevel
   attr_reader :malrollo
+  attr_reader :levelChangeAgainstCultistPlayer
   
-  def initialize(name , level , bc , p)
+  def initialize(name , level , bc , p, ic = 0)
     @name = name
     @combatLevel = level
     @malrollo = bc
     @buenrollo = p
+    @levelChangeAgainstCultistPlayer = ic
   end
   def getLevelsGained
     return @buenrollo.level

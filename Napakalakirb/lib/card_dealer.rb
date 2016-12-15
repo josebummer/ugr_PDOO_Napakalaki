@@ -19,6 +19,16 @@ class CardDealer
     @usedMonsters = Array.new
     @unusedTreasures = Array.new
     @usedTreasures = Array.new
+    @unusedCultists = Array.new
+  end
+  
+  def initCultistCardDeck
+        @unusedCultists << Cultist.new("Sectario",1)
+        @unusedCultists << Cultist.new("Sectario",2)
+        @unusedCultists << Cultist.new("Sectario",1)
+        @unusedCultists << Cultist.new("Sectario",2)
+        @unusedCultists << Cultist.new("Sectario",1)
+        @unusedCultists << Cultist.new("Sectario",1)
   end
   
   def initTreasureCardDeck
@@ -131,14 +141,45 @@ class CardDealer
     bc19 = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, [TreasureKind::ONEHAND , TreasureKind::BOTHHANDS] , Array.new)
     @unusedMonsters << Monster.new("Bicéfalo", 21, bc19, p19)
     
+    bc20 = BadConsequence.newLevelSpecificTreasures("Pierdes 1 mano visible.",0,[TreasureKind::ONEHAND],Array.new)
+    prize20 = Prize.new(3,1)
+    @unusedMonsters << Monster.new("El mal indecible impronunciable.",10,bc20,prize20,-2)
+
+    bc21 = BadConsequence.newLevelNumberOfTreasures("Pierdes tus tesoros visibles. Jajaja.",0,BadConsequence::MAXTREASURES,0)
+    prize21 = Prize.new(2,1)
+    @unusedMonsters << Monster.new("Testigos oculares.",6,bc21,prize21,2)
+
+    bc22 = BadConsequence.newDeath("Hoy no es tu dia de suerte. Mueres.")
+    prize22 = Prize.new(2,5)
+    @unusedMonsters << Monster.new("El gran cthulhu.",6,bc22,prize22,4)
+
+    bc23 = BadConsequence.new("Tu gobierno te recorta 2 niveles.",2,0,0);
+    prize23 = Prize.new(2,1)
+    @unusedMonsters << Monster.newLevelNumberOfTreasures("Serpiente Politico.",8,bc23,prize23,-2)
+
+    bc24 = BadConsequence.newLevelSpecificTreasures("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.",0,[TreasureKind::ARMOR,TreasureKind::HELMET],[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND])
+    prize24 = Prize.new(1,1)
+    @unusedMonsters << Monster.new("Felpuggoth.",2,bc24,prize24,5)
+
+    bc25 = BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles.",2,0,0)
+    prize25 = Prize.new(4,2)
+    @unusedMonsters << Monster.new("Shoggoth.",16,bc25,prize25,-4)
+
+    bc26 = BadConsequence.newLevelNumberOfTreasures("Pintalabios negro. Pierdes 2 niveles.",2,0,0)
+    prize26 = Prize.new(1,1)
+    @unusedMonsters << Monster.new("Lolitagooth.",2,bc26,prize26,3)
+    
   end
   def shuffleTreasures
     @unusedTreasures.suffle!
   end
+  def shuffleCultists
+    @unusedCultists.suffle!
+  end
   def shuffleMonsters
     @unusedMosters.suffle!
   end
-  private :initTreasureCardDeck , :initMonsterCardDeck , :shuffleTreasures , :shuffleMonsters
+  private :initTreasureCardDeck , :initMonsterCardDeck , :shuffleTreasures , :shuffleMonsters , :shuffleCultists , :initCultistCardDeck
   def nextTreasure
     if ( @unusedTreasures.empty? )
       @unusedTreasures = @usedTreasures
@@ -149,6 +190,11 @@ class CardDealer
     @usedTreasures << res
     @unusedTreasures.delete(res)
     return res
+  end
+  def Cultist nextCultist
+        c = @unusedCultists[0];
+        @unusedCultists.delete(c)
+        return c;
   end
   def nextMonster
     if ( @unusedMonsters.empty? )

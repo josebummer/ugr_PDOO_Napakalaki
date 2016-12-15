@@ -15,7 +15,7 @@ class Player
   attr_reader :level
   attr_reader :dead
   attr_reader :canISteal
-  attr_writer :enemy
+  attr_accesor :enemy
   attr_reader :hiddenTreasures
   attr_reader :visibleTreasures
   def initialize( name )
@@ -26,6 +26,15 @@ class Player
     @hiddenTreasures = Array.new
     @visibleTreasures = Array.new
     @pendingBadConsequence = nil
+  end
+  def newCopia( player )
+    @name = player.name
+    @level = player.level
+    @dead = player.dead
+    @canISteal = player.canISteal
+    @hiddenTreasures = Array.new(player.hiddenTreasures)
+    @visibleTreasures = Array.new(player.visibleTreasures)
+    @pendingBadConsequence = player.pendingBadConsequence
   end
   
   def bringToLife
@@ -38,6 +47,10 @@ class Player
       resultado += v.bonus
     end
     return resultado
+  end
+  
+  def getOponentLevel(m)
+        return m.combatLevel
   end
   
   def incrementLevels( i )
@@ -128,8 +141,10 @@ class Player
   def dieIfNoTreasures
     @dead = true
   end
-  # :getCombatLevel
-  private :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
+  
+  private :getCombatLevel , :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
+  protected :enemy , :getOponentLevel, :shouldConvert , :getCombatLevel
+  
   def combat( m )
     myLevel = getCombatLevel
     monsterLevel = m.combatLevel
@@ -216,6 +231,16 @@ class Player
     end
     return treasure
   end
+  
+  def shouldConvert
+        dice = Dice.instance
+        number = dice.nextNumber
+        if( number == 1 )
+            return true
+        end
+        return false
+  end
+    
   def giveMeATreasure
     nu = rand(@hiddenTreasures.size)
     return @hiddenTreasures[nu]
