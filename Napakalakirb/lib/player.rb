@@ -15,7 +15,7 @@ class Player
   attr_reader :level
   attr_reader :dead
   attr_reader :canISteal
-  attr_accesor :enemy
+  attr_accessor :enemy
   attr_reader :hiddenTreasures
   attr_reader :visibleTreasures
   def initialize( name )
@@ -142,12 +142,9 @@ class Player
     @dead = true
   end
   
-  private :getCombatLevel , :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
-  protected :enemy , :getOponentLevel, :shouldConvert , :getCombatLevel
-  
   def combat( m )
     myLevel = getCombatLevel
-    monsterLevel = m.combatLevel
+    monsterLevel = getOponentLevel(m)
     if( !@canISteal )
       dice = Dice.instance
       number = dice.nextNumber
@@ -165,7 +162,12 @@ class Player
       end
     else
       applyBadConsequence(m)
-      res = CombatResult::LOSE
+      b = shouldConvert
+      if(b)
+        res = CombatResult::LOSEANDCONVERT
+      else
+        res = CombatResult::LOSE
+      end
     end
     return res
   end
@@ -285,4 +287,7 @@ class Player
     PendingBadConsequence: #{@pendingBadConsequence}, 
     Enemigo: #{@enemy.name}\n"
   end
+  
+  private :getCombatLevel , :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
+  protected :enemy , :getOponentLevel, :shouldConvert , :getCombatLevel
 end

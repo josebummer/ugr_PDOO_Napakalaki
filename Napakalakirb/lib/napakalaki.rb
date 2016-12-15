@@ -66,6 +66,19 @@ class Napakalaki
   def developCombat
     cre = @currentPlayer.combat(@currentMonster)
     @dealer.giveMonsterBack(@currentMonster)
+    if cre == CombatResult::LOSEANDCONVERT
+      c = @dealer.nextCultist
+      cp = CultistPlayer.new(@currentPlayer,c)
+      pos = @players.index(@currentPlayer)
+      @players.delete(@currentPlayer)
+      @players.insert(pos, cp)
+      @players.each do |p|
+        if(p.enemy == @currentPlayer)
+          p.enemy = cp
+        end
+      end
+      @currentPlayer = cp
+    end
     return cre
   end
   def discardVisibleTreasures( treasures )

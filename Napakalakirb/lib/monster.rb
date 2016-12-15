@@ -10,7 +10,6 @@ class Monster
   attr_reader :name
   attr_reader :combatLevel
   attr_reader :malrollo
-  attr_reader :levelChangeAgainstCultistPlayer
   
   def initialize(name , level , bc , p, ic = 0)
     @name = name
@@ -24,6 +23,9 @@ class Monster
   end
   def getTreasuresGained
     return @buenrollo.treasures
+  end
+  def getLevelChangeAgainstCultistPlayer
+    return @levelChangeAgainstCultistPlayer + @combatLevel
   end
   def to_s
     "Nombre: #{@name}, Nivel de combate: #{@combatLevel},

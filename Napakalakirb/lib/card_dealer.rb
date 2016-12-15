@@ -9,6 +9,7 @@ require_relative "monster.rb"
 require_relative "bad_consequence.rb"
 require_relative "treasure_kind.rb"
 require_relative "treasure.rb"
+require_relative "cultist.rb"
 
 
 class CardDealer
@@ -153,9 +154,9 @@ class CardDealer
     prize22 = Prize.new(2,5)
     @unusedMonsters << Monster.new("El gran cthulhu.",6,bc22,prize22,4)
 
-    bc23 = BadConsequence.new("Tu gobierno te recorta 2 niveles.",2,0,0);
+    bc23 = BadConsequence.newLevelNumberOfTreasures("Tu gobierno te recorta 2 niveles.",2,0,0);
     prize23 = Prize.new(2,1)
-    @unusedMonsters << Monster.newLevelNumberOfTreasures("Serpiente Politico.",8,bc23,prize23,-2)
+    @unusedMonsters << Monster.new("Serpiente Politico.",8,bc23,prize23,-2)
 
     bc24 = BadConsequence.newLevelSpecificTreasures("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.",0,[TreasureKind::ARMOR,TreasureKind::HELMET],[TreasureKind::BOTHHANDS,TreasureKind::ONEHAND,TreasureKind::ONEHAND])
     prize24 = Prize.new(1,1)
@@ -171,13 +172,13 @@ class CardDealer
     
   end
   def shuffleTreasures
-    @unusedTreasures.suffle!
+    @unusedTreasures.shuffle!
   end
   def shuffleCultists
-    @unusedCultists.suffle!
+    @unusedCultists.shuffle!
   end
   def shuffleMonsters
-    @unusedMosters.suffle!
+    @unusedMonsters.shuffle!
   end
   private :initTreasureCardDeck , :initMonsterCardDeck , :shuffleTreasures , :shuffleMonsters , :shuffleCultists , :initCultistCardDeck
   def nextTreasure
@@ -221,6 +222,10 @@ class CardDealer
   def initCards
     initTreasureCardDeck
     initMonsterCardDeck
+    initCultistCardDeck
+    shuffleTreasures
+    shuffleMonsters
+    shuffleCultists
   end
   
 end

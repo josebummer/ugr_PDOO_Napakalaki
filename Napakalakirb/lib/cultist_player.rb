@@ -17,7 +17,7 @@ class CultistPlayer < Player
     return super.getCombatLevel + super.getCombatLevel*20/100 + @myCultistCard.gainedLevels*@@totalCultistPlayer
   end
   def getOponentLevel(m)
-    return m.levelChangeAgainstCultistPlayer
+    return m.getLevelChangeAgainstCultistPlayer
   end
   def shouldConvert
     return false
