@@ -98,15 +98,15 @@ class Player
     if ( @visibleTreasures.empty? )
       return true
     end
-    if ( t.type == [TreasureKind::BOTHHANDS] )
+    if ( t.type == TreasureKind::BOTHHANDS )
       @visibleTreasures.each do |v|
-        if ( v.type == [TreasureKind::ONEHAND] || v.type == t.type )
+        if ( v.type == TreasureKind::ONEHAND || v.type == t.type )
           return false
         end
       end
       return true
     end
-    if ( t.type != [TreasureKind::ONEHAND])
+    if ( t.type != TreasureKind::ONEHAND)
       @visibleTreasures.each do |v|
         if ( v.type == t.type )
           return false
@@ -116,7 +116,7 @@ class Player
     end
     cont = 0
     @visibleTreasures.each do |v|
-      if( v.type == [TreasureKind::BOTHHANDS] )
+      if( v.type == TreasureKind::BOTHHANDS )
         return false
       elsif( v.type == t.type )
         cont += 1
@@ -289,5 +289,5 @@ class Player
   end
   
   private :getCombatLevel , :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
-  protected :enemy , :getOponentLevel, :shouldConvert , :getCombatLevel
+  protected :getOponentLevel, :shouldConvert , :getCombatLevel
 end

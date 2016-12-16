@@ -58,17 +58,17 @@ class BadConsequence
     ah = Array.new
     if( @nVisibleTreasures == 0 && @nHiddenTreasures == 0 )
       v.each do |t|
-        if( @specificVisibleTreasures.include?(t.type) && !av.include?(t.type))
+        if( @specificVisibleTreasures.include?(t.type))
           av << t.type;
         end
       end
       h.each do |t|
-        if( @specificHiddenTreasures.include?(t.type) && !ah.include?(t.type))
+        if( @specificHiddenTreasures.include?(t.type))
             ah << t.type;
         end
       end
       res = BadConsequence.newLevelSpecificTreasures(@text,0,av,ah);
-      return res;
+      return res
     end
     if( @nVisibleTreasures == 0 )
       nv = 0;

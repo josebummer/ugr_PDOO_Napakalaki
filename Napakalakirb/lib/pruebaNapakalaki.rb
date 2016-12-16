@@ -61,19 +61,19 @@ end
  
  def self.monstruos
    p1 = Prize.new(2,1)
-   bc1 = BadConsequence.newLevelSpecificTreasures("Pierdes tu armaduta visible y otra oculta", 0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
+   bc1 = BadConsequence.newLevelSpecificTreasures("Pierdes tu armaduta visible y otra oculta", 0, TreasureKind::ARMOR, TreasureKind::ARMOR)
    @@monsters << Monster.new("Byakhees de bonanza", 8, bc1, p1)
    
    p2 = Prize.new(1,1)
-   bc2 = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible", 0, [TreasureKind::HELMET], Array.new )
+   bc2 = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible", 0, TreasureKind::HELMET, Array.new )
    @@monsters << Monster.new("Tenochtitlan", 2, bc2, p2)
    
    p3 = Prize.new(1, 1)
-   bc3 = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes el calzado visible", 0, [TreasureKind::SHOES], Array.new)
+   bc3 = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes el calzado visible", 0, TreasureKind::SHOES, Array.new)
    @@monsters << Monster.new("El sopor de Dunwich", 2, bc3, p3)
    
    p4 = Prize.new(4, 1)
-   bc4 = BadConsequence.newLevelSpecificTreasures("Te atrapa para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta", 0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
+   bc4 = BadConsequence.newLevelSpecificTreasures("Te atrapa para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta", 0, TreasureKind::ONEHAND, TreasureKind::ONEHAND)
    @@monsters << Monster.new("Demonios de Magaluf", 2, bc4, p4)
    
    p5 = Prize.new(3, 1)
@@ -81,11 +81,11 @@ end
    @@monsters << Monster.new("El gorrón en el umbral", 13, bc5, p5)
    
    p6 = Prize.new(2, 1)
-   bc6 = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible", 0, [TreasureKind::ARMOR], Array.new)
+   bc6 = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible", 0, TreasureKind::ARMOR, Array.new)
    @@monsters << Monster.new("H.P. Munchcraft", 6, bc6, p6)
    
    p7 = Prize.new(1, 1)
-   bc7 = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa.Descarta la armadura visible", 0, [TreasureKind::ARMOR], Array.new)
+   bc7 = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa.Descarta la armadura visible", 0, TreasureKind::ARMOR, Array.new)
    @@monsters << Monster.new("Necrófago", 13, bc7, p7)
    
    p8 = Prize.new(3, 2)
@@ -105,7 +105,7 @@ end
    @@monsters << Monster.new("Semillas Cthulhu", 4, bc11, p11)
 
    p12 = Prize.new(2, 1)
-   bc12 = BadConsequence.newLevelSpecificTreasures("Te intentas escaquear. Pierdes una mano visible", 0, [TreasureKind::ONEHAND] , Array.new)
+   bc12 = BadConsequence.newLevelSpecificTreasures("Te intentas escaquear. Pierdes una mano visible", 0, TreasureKind::ONEHAND , Array.new)
    @@monsters << Monster.new("Dameargo", 1, bc12, p12)
 
    p13 = Prize.new(2, 1)
@@ -121,11 +121,11 @@ end
    @@monsters << Monster.new("Familia feliz", 1, bc15, p15)
 
    p16 = Prize.new(2, 1)
-   bc16 = BadConsequence.newLevelSpecificTreasures("La quinta directiva primaria te obliga a perder dos niveles y un tesoro 2 manos visible", 2, [TreasureKind::BOTHHANDS] , Array.new)
+   bc16 = BadConsequence.newLevelSpecificTreasures("La quinta directiva primaria te obliga a perder dos niveles y un tesoro 2 manos visible", 2, TreasureKind::BOTHHANDS , Array.new)
    @@monsters << Monster.new("Roboggoth", 8, bc16, p16)
 
    p17 = Prize.new(1, 1)
-   bc17 = BadConsequence.newLevelSpecificTreasures("Te asustas en la noche. Pierdes un casco visible", 0, [TreasureKind::HELMET], Array.new)
+   bc17 = BadConsequence.newLevelSpecificTreasures("Te asustas en la noche. Pierdes un casco visible", 0, TreasureKind::HELMET, Array.new)
    @@monsters << Monster.new("El espia sordo", 5, bc17, p17)
 
    p18 = Prize.new(2, 1)

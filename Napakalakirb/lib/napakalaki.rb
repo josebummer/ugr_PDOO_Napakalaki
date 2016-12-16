@@ -9,6 +9,7 @@ require_relative "player.rb"
 require_relative "monster.rb"
 require_relative "card_dealer.rb"
 require_relative "treasure_kind.rb"
+require_relative "cultist_player.rb"
 
 class Napakalaki
   include Singleton
@@ -118,6 +119,6 @@ class Napakalaki
     return stateOK
   end
   def endOfGame( result )
-    return ( result ==  [CombatResult::WINGAME])
+    return ( result ==  CombatResult::WINGAME)
   end
 end
