@@ -72,12 +72,12 @@ public class BadConsequence {
         
         if( this.getnVisibleTreasures() == 0 && this.getnHiddenTreasures() == 0 ){
             for( Treasure t : v ){
-                if( this.getspecificVisibleTreasures().contains(t.getType()) && !av.contains(t.getType())){
+                if( this.getspecificVisibleTreasures().contains(t.getType())){
                     av.add(t.getType());
                 }
             }
             for( Treasure t : h ){
-                if( this.getspecificHiddenTreasures().contains(t.getType()) && !ah.contains(t.getType())){
+                if( this.getspecificHiddenTreasures().contains(t.getType())){
                     ah.add(t.getType());
                 }
             }
