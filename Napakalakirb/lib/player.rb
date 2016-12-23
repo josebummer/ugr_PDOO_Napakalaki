@@ -155,7 +155,7 @@ class Player
     end
     if( myLevel > monsterLevel )
       applyPrize(m)
-      if( myLevel >= MAXLEVEL )
+      if( @level >= MAXLEVEL )
         res = CombatResult::WINGAME
       else
         res = CombatResult::WIN
@@ -288,6 +288,7 @@ class Player
     Enemigo: #{@enemy.name}\n"
   end
   
-  private :getCombatLevel , :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
+  #:getCombatLevel
+  private :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
   protected :getOponentLevel, :shouldConvert , :getCombatLevel
 end
