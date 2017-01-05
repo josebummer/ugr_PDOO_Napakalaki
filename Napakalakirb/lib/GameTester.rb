@@ -50,6 +50,8 @@ class GameTester
               puts "\n\n Ganaste el combate"
             when CombatResult::LOSE then
               puts "\n\n Has perdido el combate, te toca cumplir el mal rollo"
+            when CombatResult::LOSEANDCONVERT then
+              puts "\n\n Has perdido el combate, te toca cumplir el mal rollo"
            end #case
            if (combatResult != CombatResult::WINGAME) then
             begin #Hasta que se avance de turno 
