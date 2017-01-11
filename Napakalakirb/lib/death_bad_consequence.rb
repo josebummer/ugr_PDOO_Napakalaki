@@ -16,10 +16,6 @@ class DeathBadConsequence < NumericBadConsequence
     return super()
   end
   
-  def adjustToFitTreasureLists( v , h )
-    return super(v,h)
-  end
-  
   def to_s
     return super() + ", Muerte: #{@death}"
   end

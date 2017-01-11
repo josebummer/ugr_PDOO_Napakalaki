@@ -26,11 +26,11 @@ class CultistPlayer < Player
   protected :getOponentLevel , :shouldConvert
   
   def giveMeATreasure
-    number = rand(super.visibleTreasures.length)
-    return super.visibleTreasures[number]
+    number = rand(visibleTreasures.length)
+    return visibleTreasures[number]
   end
   def canYouGiveMeATreasure
-    return !super.visibleTreasures.empty?
+    return !visibleTreasures.empty?
   end
-  private :giveMeATreasure , :canYouGiveMeATreasure , :getCombatLevel , :enemy 
+  private :giveMeATreasure , :canYouGiveMeATreasure
 end

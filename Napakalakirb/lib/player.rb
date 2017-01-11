@@ -9,6 +9,7 @@ require_relative "dice.rb"
 require_relative "treasure.rb"
 require_relative "treasure_kind.rb"
 
+
 class Player
   MAXLEVEL = 10
   attr_reader :name
@@ -291,5 +292,5 @@ class Player
   end
   
   private :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
-  protected :getOponentLevel, :shouldConvert , :getCombatLevel , :enemy
+  protected :getOponentLevel, :shouldConvert
 end
