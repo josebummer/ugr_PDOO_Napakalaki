@@ -77,7 +77,7 @@ public class Napakalaki {
             int pos = players.indexOf(currentPlayer);
             players.set(pos, cp);
             for ( Player p : players ){
-                if( p.getEnemy() == currentPlayer ){
+                if( p.getEnemy().equals(currentPlayer) ){
                     p.setEnemy(cp);
                 }
             }

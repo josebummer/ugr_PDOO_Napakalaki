@@ -21,11 +21,6 @@ public class DeathBadConsequence extends NumericBadConsequence {
     }
     
     @Override
-    public NumericBadConsequence adjustToFitTreasureLists( ArrayList<Treasure> v , ArrayList<Treasure> h ){
-        return super.adjustToFitTreasureLists(v,h);
-    }
-    
-    @Override
     public boolean isEmpty(){
         return super.isEmpty();
     }
