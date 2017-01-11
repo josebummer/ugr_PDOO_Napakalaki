@@ -9,7 +9,7 @@ class CultistPlayer < Player
   @@totalCultistPlayer = 0
   
   def initialize( p , c )
-    super(p)
+    super.newCopia(p)
     @myCultistCard = c
     @@totalCultistPlayer += 1
   end
