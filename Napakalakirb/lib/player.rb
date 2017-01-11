@@ -17,6 +17,7 @@ class Player
   attr_reader :canISteal
   attr_accessor :enemy
   attr_reader :hiddenTreasures
+  attr_reader :pendingBadConsequence
   attr_reader :visibleTreasures
   def initialize( name )
     @name = name
@@ -35,6 +36,7 @@ class Player
     @hiddenTreasures = Array.new(player.hiddenTreasures)
     @visibleTreasures = Array.new(player.visibleTreasures)
     @pendingBadConsequence = player.pendingBadConsequence
+    @enemy = player.enemy
   end
   
   def bringToLife
@@ -237,7 +239,7 @@ class Player
   def shouldConvert
         dice = Dice.instance
         number = dice.nextNumber
-        if( number == 1 )
+        if( number == 6 ) 
             return true
         end
         return false
@@ -290,5 +292,5 @@ class Player
   
   #:getCombatLevel
   private :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
-  protected :getOponentLevel, :shouldConvert , :getCombatLevel
+  protected :getOponentLevel, :shouldConvert
 end

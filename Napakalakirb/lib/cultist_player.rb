@@ -9,12 +9,13 @@ class CultistPlayer < Player
   @@totalCultistPlayer = 0
   
   def initialize( p , c )
-    super.newCopia(p)
+    super(p.name)
+    newCopia(p)
     @myCultistCard = c
     @@totalCultistPlayer += 1
   end
   def getCombatLevel
-    return super.getCombatLevel + super.getCombatLevel*20/100 + @myCultistCard.gainedLevels*@@totalCultistPlayer
+    return super() + super()*70/100 + @myCultistCard.gainedLevels*@@totalCultistPlayer
   end
   def getOponentLevel(m)
     return m.getLevelChangeAgainstCultistPlayer
@@ -22,7 +23,7 @@ class CultistPlayer < Player
   def shouldConvert
     return false
   end
-  protected :getCombatLevel , :getOponentLevel , :shouldConvert
+  protected :getOponentLevel , :shouldConvert
   
   def giveMeATreasure
     number = rand(super.visibleTreasures.length)

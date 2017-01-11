@@ -51,7 +51,9 @@ class GameTester
             when CombatResult::LOSE then
               puts "\n\n Has perdido el combate, te toca cumplir el mal rollo"
             when CombatResult::LOSEANDCONVERT then
-              puts "\n\n Has perdido el combate, te toca cumplir el mal rollo"
+              puts "\n\n Has perdido el combate, y te has convertido en sectario"
+              puts "\n No obstante, tienes que cumplir el mal rollo" 
+              currentPlayer=@game.currentPlayer 
            end #case
            if (combatResult != CombatResult::WINGAME) then
             begin #Hasta que se avance de turno 

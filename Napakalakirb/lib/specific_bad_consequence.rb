@@ -36,14 +36,18 @@ class SpecificBadConsequence < BadConsequence
   def adjustToFitTreasureLists( v , h )
     av = Array.new
     ah = Array.new
+    cspecificv = Array.new(@specificVisibleTreasures)
+    cspecifich = Array.new(@specificHiddenTreasures)
     v.each do |t|
-      if( @specificVisibleTreasures.include?(t.type))
+      if( cspecificv.include?(t.type))
         av << t.type;
+        cspecificv.delete(t.type)
       end
     end
     h.each do |t|
-      if( @specificHiddenTreasures.include?(t.type))
+      if( cspecifich.include?(t.type))
           ah << t.type;
+          cspecifich.delete(t.type)
       end
     end
     res = SpecificBadConsequence.new(@text,0,av,ah);

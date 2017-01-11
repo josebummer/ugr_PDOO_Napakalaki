@@ -74,7 +74,7 @@ class Napakalaki
       @players.delete(@currentPlayer)
       @players.insert(pos, cp)
       @players.each do |p|
-        if(p.enemy == @currentPlayer)
+        if(p.enemy.eql?(@currentPlayer) )
           p.enemy = cp
         end
       end

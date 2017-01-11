@@ -155,7 +155,7 @@ class CardDealer
 
     bc22 = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres.")
     prize22 = Prize.new(2,5)
-    @unusedMonsters << Monster.new("El gran cthulhu.",6,bc22,prize22,4)
+    @unusedMonsters << Monster.new("El gran cthulhu.",20,bc22,prize22,4)
 
     bc23 = NumericBadConsequence.new("Tu gobierno te recorta 2 niveles.",2,0,0);
     prize23 = Prize.new(2,1)
