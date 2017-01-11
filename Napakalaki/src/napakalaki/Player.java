@@ -44,6 +44,7 @@ public class Player {
         canISteal = p.canISteal();
         dead = p.dead;
         pendingBadConsequence = p.pendingBadConsequence;
+        enemy = p.enemy;
     }
    
     public String getName()
@@ -187,7 +188,7 @@ public class Player {
         }
         if( myLevel > monsterLevel ){
             this.applyPrize(m);
-            if( myLevel >= MAXLEVEL ){
+            if( this.level >= MAXLEVEL ){
                 res = CombatResult.WINGAME;
             }
             else{
@@ -334,7 +335,7 @@ public class Player {
     protected boolean shouldConvert(){
         Dice dice = Dice.getInstance();
         int number = dice.nextNumber();
-        if( number == 1 ){
+        if( number == 6 ){
             return true;
         }
         return false;

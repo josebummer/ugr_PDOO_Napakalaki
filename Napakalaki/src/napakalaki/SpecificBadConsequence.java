@@ -48,15 +48,19 @@ public class SpecificBadConsequence extends BadConsequence {
     public SpecificBadConsequence adjustToFitTreasureLists( ArrayList<Treasure> v , ArrayList<Treasure> h ){
         ArrayList<TreasureKind>  av = new ArrayList();
         ArrayList<TreasureKind> ah = new ArrayList();
+        ArrayList<TreasureKind> cspecificv = new ArrayList(this.getspecificVisibleTreasures());
+        ArrayList<TreasureKind> cspecifich = new ArrayList(this.getspecificHiddenTreasures());
        
         for( Treasure t : v ){
-            if( this.getspecificVisibleTreasures().contains(t.getType())){
+            if( cspecificv.contains(t.getType())){
                 av.add(t.getType());
+                cspecificv.remove(t.getType());
             }
         }
         for( Treasure t : h ){
-            if( this.getspecificHiddenTreasures().contains(t.getType())){
+            if( cspecifich.contains(t.getType())){
                 ah.add(t.getType());
+                cspecifich.remove(t.getType());
             }
         }
         SpecificBadConsequence res = new SpecificBadConsequence(this.getText(),0,av,ah);
