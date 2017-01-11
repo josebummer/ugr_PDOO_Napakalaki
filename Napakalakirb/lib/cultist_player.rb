@@ -32,5 +32,5 @@ class CultistPlayer < Player
   def canYouGiveMeATreasure
     return !super.visibleTreasures.empty?
   end
-  private :giveMeATreasure , :canYouGiveMeATreasure 
+  private :giveMeATreasure , :canYouGiveMeATreasure , :getCombatLevel , :enemy 
 end

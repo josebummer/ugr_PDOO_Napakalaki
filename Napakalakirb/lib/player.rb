@@ -290,7 +290,6 @@ class Player
     Enemigo: #{@enemy.name}\n"
   end
   
-  #:getCombatLevel
   private :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
-  protected :getOponentLevel, :shouldConvert
+  protected :getOponentLevel, :shouldConvert , :getCombatLevel , :enemy
 end
