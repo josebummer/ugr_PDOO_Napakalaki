@@ -24,15 +24,15 @@ public class CultistPlayer extends Player{
     protected int getCombatLevel(){
         return super.getCombatLevel() + super.getCombatLevel()*70/100 + myCultistCard.getGainedLevels()*totalCultistPlayer;
     }
-    @Override
+   @Override
     protected int getOponentLevel(Monster m){
         return m.getCombatLevelAgainstCultistPlayer();
     }
-    @Override
+   @Override
     protected boolean shouldConvert(){
         return false;
     }
-
+    
     private Treasure giveMeATreasure(){
         Random  rnd = new Random();
         int number = (int) (rnd.nextDouble() * super.getVisibleTreasures().size());
