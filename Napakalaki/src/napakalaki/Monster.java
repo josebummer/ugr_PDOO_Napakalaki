@@ -49,7 +49,7 @@ public class Monster {
         return buenrollo.getTreasures();
     }
     public String toString(){
-        return "Nombre: " + name + " Nivel de combate: " + Integer.toString(level) + 
+        return "Nombre: " + name + " Nivel de combate: " + Integer.toString(level) + ", Nivel de combate SECTARIOS: " + getCombatLevelAgainstCultistPlayer() +
                 "\nBuen rollo: " + buenrollo.toString() + "\nMal rollo: " + malrollo.toString() + "\n";
     }
 }

@@ -52,7 +52,7 @@ public class Player {
     return name;
     }
     
-    protected Player getEnemy(){
+    public Player getEnemy(){
         return enemy;
     }
     
