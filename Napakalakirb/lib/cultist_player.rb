@@ -9,7 +9,6 @@ class CultistPlayer < Player
   @@totalCultistPlayer = 0
   
   def initialize( p , c )
-    super(p.name)
     newCopia(p)
     @myCultistCard = c
     @@totalCultistPlayer += 1
@@ -23,8 +22,6 @@ class CultistPlayer < Player
   def shouldConvert
     return false
   end
-  protected :getOponentLevel , :shouldConvert
-  
   def giveMeATreasure
     number = rand(visibleTreasures.length)
     return visibleTreasures[number]
