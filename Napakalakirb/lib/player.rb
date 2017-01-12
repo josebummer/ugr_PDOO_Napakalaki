@@ -292,5 +292,5 @@ class Player
   end
   
   private :bringToLife , :incrementLevels , :decrementLevels , :setPendingBadConsequence , :applyPrize , :applyBadConsequence , :canMakeTreasureVisible , :howManyVisibleTreasures , :dieIfNoTreasures
-  protected :getOponentLevel, :shouldConvert
+  protected :getOponentLevel, :shouldConvert , :getCombatLevel
 end

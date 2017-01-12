@@ -33,4 +33,5 @@ class CultistPlayer < Player
     return !visibleTreasures.empty?
   end
   private :giveMeATreasure , :canYouGiveMeATreasure
+  protected :getCombatLevel , :getOponentLevel , :shouldConvert
 end

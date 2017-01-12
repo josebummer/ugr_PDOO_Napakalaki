@@ -28,7 +28,7 @@ class Monster
     return @levelChangeAgainstCultistPlayer + @combatLevel
   end
   def to_s
-    "Nombre: #{@name}, Nivel de combate: #{@combatLevel}, 
+    "Nombre: #{@name}, Nivel de combate: #{@combatLevel}, Nivel de combate SECTARIOS: #{getLevelChangeAgainstCultistPlayer},
     Buen rollo: #{@buenrollo}
     Mal rollo: #{@malrollo}\n"
   end
