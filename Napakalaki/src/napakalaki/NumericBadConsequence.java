@@ -50,11 +50,17 @@ public class NumericBadConsequence extends BadConsequence {
         if( this.getnVisibleTreasures() == 0 ){
             nv = 0;
         }
+        else if( this.getnVisibleTreasures() < v.size() ){
+            nv = this.getnVisibleTreasures();
+        }
         else{
             nv = v.size();
         }
         if ( this.getnHiddenTreasures() == 0 ){
             nh = 0;
+        }
+        else if( this.getnHiddenTreasures() < h.size() ){
+            nh = this.getnHiddenTreasures();
         }
         else{
             nh = h.size();

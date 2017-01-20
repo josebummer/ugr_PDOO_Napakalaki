@@ -7,6 +7,7 @@ package napakalaki;
 
 import java.util.ArrayList;
 import java.util.Random;
+import GUI.Dice;
 
 /**
  *
@@ -344,8 +345,8 @@ public class Player {
     
     public String toString(){
         return "\nNombre: " + name + " Nivel: " + Integer.toString(level) + " Nivel de combate: " + this.getCombatLevel() +
-                "\nMuerte: " + dead + "\nPuede robar: " + canISteal + "\nTesoros ocultos: " + hiddenTreasures +
-                "\nTesoros visibles: " + visibleTreasures + "\nPendingBadConsequence: " + pendingBadConsequence + "\nEnemigo: " + enemy.getName() + "\n";
+                "\nMuerte: " + dead + "\nPuede robar: " + canISteal + "\nPendingBadConsequence: " + pendingBadConsequence + 
+                "\nEnemigo: " + enemy.getName() + "\n";
     }
 }
    

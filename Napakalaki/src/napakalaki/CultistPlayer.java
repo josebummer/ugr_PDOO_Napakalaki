@@ -46,5 +46,9 @@ public class CultistPlayer extends Player{
     public static int getTotalCultistPlayer(){
         return totalCultistPlayer;
     }
+    @Override
+    public String toString(){
+        return super.toString() + "Tipo de Jugador: CULTIS PLAYER.\n";
+    }
     
 }
