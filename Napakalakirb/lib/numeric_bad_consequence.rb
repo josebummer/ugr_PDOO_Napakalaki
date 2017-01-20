@@ -36,11 +36,15 @@ class NumericBadConsequence < BadConsequence
   def adjustToFitTreasureLists( v , h )
     if( @nVisibleTreasures == 0 )
       nv = 0;
+    elsif( @nVisibleTreasures < v.length )
+      nv = @nVisibleTreasures
     else
       nv = v.size
     end
     if ( @nHiddenTreasures == 0 )
       nh = 0
+    elsif( @nHiddenTreasures < h.length )
+      nh = @nHiddenTreasures
     else
       nh = h.size
     end
