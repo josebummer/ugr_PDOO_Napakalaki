@@ -14,15 +14,13 @@ import java.util.ArrayList;
 public class PruebaPractica5 {
     
      public static void main(String[] args) {
-         Napakalaki game = Napakalaki.getInstance();
+         Napakalaki napakalakiModel = Napakalaki.getInstance();
          NapakalakiView napakalakiView = new NapakalakiView();
          Dice.createInstance(napakalakiView);
-         napakalakiView.setNapakalaki(game);
-         ArrayList<String> names;
-         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView,true);
-         names = namesCapture.getNames();
-         game.initGame(names);
-         
-         napakalakiView.setVisible(true);
+         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
+         ArrayList<String> names = namesCapture.getNames();
+         napakalakiModel.initGame(names);
+         napakalakiView.setNapakalaki(napakalakiModel);
+         napakalakiView.showView();
      }
 }

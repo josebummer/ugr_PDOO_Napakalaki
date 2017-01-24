@@ -22,7 +22,6 @@ public class Napakalaki {
         players = new ArrayList();
         dealer = CardDealer.getInstance();
         currentPlayer = null;
-        
     }
     private void initPlayers( ArrayList<String> names ){
         for ( String n : names ){

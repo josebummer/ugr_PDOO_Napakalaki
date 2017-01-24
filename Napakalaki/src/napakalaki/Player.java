@@ -323,6 +323,10 @@ public class Player {
             this.discardHiddenTreasure(t);
         }
     }
+    
+    public BadConsequence getPendingBadConsequence(){
+        return pendingBadConsequence;
+    }
    
     private void dieIfNoTreasures(){
         dead = true;
@@ -345,8 +349,7 @@ public class Player {
     
     public String toString(){
         return "\nNombre: " + name + " Nivel: " + Integer.toString(level) + " Nivel de combate: " + this.getCombatLevel() +
-                "\nMuerte: " + dead + "\nPuede robar: " + canISteal + "\nPendingBadConsequence: " + pendingBadConsequence + 
-                "\nEnemigo: " + enemy.getName() + "\n";
+                "\nMuerte: " + dead + "\nPuede robar: " + canISteal + "\nEnemigo: " + enemy.getName() + "\n";
     }
 }
    

@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 package GUI;
-import napakalaki.Napakalaki;
+import napakalaki.*;
 
 /**
  *
  * @author jose
  */
 public class NapakalakiView extends javax.swing.JFrame {
-    Napakalaki napakalakiModel;
+    private Napakalaki napakalakiModel;
 
     /**
      * Creates new form NapakalakiView
@@ -20,9 +20,14 @@ public class NapakalakiView extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void setNapakalaki (Napakalaki anapa) {
-        // se actualiza el atributo de referencia
-        napakalakiModel = anapa;
+    public void setNapakalaki(Napakalaki aNapakalaki){
+        napakalakiModel = aNapakalaki;
+        this.monsterView1.setVisible(false);
+        this.jLabelres.setVisible(false);
+        this.playerView1.setNapakalaki(napakalakiModel, this);
+        this.playerView1.setPlayer(napakalakiModel.getCurrentPlayer());
+        this.monsterView1.setMonster(napakalakiModel.getCurrentMonster());
+        repaint();
     }
 
     /**
@@ -34,21 +39,128 @@ public class NapakalakiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        playerView1 = new GUI.PlayerView();
+        monsterView1 = new GUI.MonsterView();
+        jLabelres = new javax.swing.JLabel();
+        jLabelresultado = new javax.swing.JLabel();
+        jButtonmostrar = new javax.swing.JButton();
+        jButtoncombat = new javax.swing.JButton();
+        jButtonnext = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabelres.setFont(new java.awt.Font("Noto Sans", 3, 14)); // NOI18N
+        jLabelres.setText("Resultado del combate:");
+
+        jLabelresultado.setEnabled(false);
+
+        jButtonmostrar.setText("Mostrar al Monstruo");
+        jButtonmostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonmostrarActionPerformed(evt);
+            }
+        });
+
+        jButtoncombat.setText("Combatir");
+        jButtoncombat.setEnabled(false);
+        jButtoncombat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtoncombatActionPerformed(evt);
+            }
+        });
+
+        jButtonnext.setText("Siguiente Turno");
+        jButtonnext.setEnabled(false);
+        jButtonnext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonnextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(playerView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monsterView1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtoncombat)
+                    .addComponent(jButtonmostrar)
+                    .addComponent(jButtonnext)
+                    .addComponent(jLabelres)
+                    .addComponent(jLabelresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(playerView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(monsterView1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jButtonmostrar)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtoncombat)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButtonnext)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabelres)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelresultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonmostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonmostrarActionPerformed
+        // TODO add your handling code here:
+        this.monsterView1.setVisible(true);
+        this.jButtoncombat.setEnabled(true);
+        this.jButtonnext.setEnabled(true);
+        
+    }//GEN-LAST:event_jButtonmostrarActionPerformed
+
+    private void jButtoncombatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncombatActionPerformed
+        // TODO add your handling code here:
+        this.jLabelres.setVisible(true);
+        CombatResult combatResult = napakalakiModel.getCurrentPlayer().combat(napakalakiModel.getCurrentMonster());
+        switch (combatResult) {
+            case WINGAME : 
+              this.jLabelresultado.setText("\n\n ¡¡¡ H A S   G A N A D O   L A   P A R T I D A !!!");
+              break;
+            case WIN :
+              this.jLabelresultado.setText("\n\n Ganaste el combate");
+              break;
+            case LOSE :
+              this.jLabelresultado.setText("\n\n Has perdido el combate, te toca cumplir el mal rollo");
+              break;
+            case LOSEANDCONVERT :
+              this.jLabelresultado.setText("\n\n Has perdido el combate, y te has convertido en sectario.\n No obstante, tienes que cumplir el mal rollo");
+              break;
+          }
+        this.jLabelresultado.setVisible(true);
+        this.jButtoncombat.setEnabled(false);
+        this.playerView1.cambiarBotones(true);
+        setNapakalaki(napakalakiModel);
+    }//GEN-LAST:event_jButtoncombatActionPerformed
+
+    private void jButtonnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonnextActionPerformed
+        // TODO add your handling code here:
+        napakalakiModel.nextTurn();
+        this.jButtonnext.setEnabled(false);
+        this.jButtoncombat.setEnabled(false);
+        this.playerView1.cambiarBotones(false);
+        this.jLabelresultado.setVisible(false);
+        setNapakalaki(napakalakiModel);
+    }//GEN-LAST:event_jButtonnextActionPerformed
 
     
     public void showView() {
@@ -56,5 +168,12 @@ public class NapakalakiView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtoncombat;
+    private javax.swing.JButton jButtonmostrar;
+    private javax.swing.JButton jButtonnext;
+    private javax.swing.JLabel jLabelres;
+    private javax.swing.JLabel jLabelresultado;
+    private GUI.MonsterView monsterView1;
+    private GUI.PlayerView playerView1;
     // End of variables declaration//GEN-END:variables
 }

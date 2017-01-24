@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import java.awt.Color;
 import napakalaki.Treasure;
 
 /**
@@ -11,13 +12,22 @@ import napakalaki.Treasure;
  * @author jose
  */
 public class TreasureView extends javax.swing.JPanel {
-    Treasure treasureModel;
+    private Treasure treasureModel;
+    private boolean selected = false;
 
     /**
      * Creates new form TreasureView
      */
     public TreasureView() {
         initComponents();
+    }
+    
+    public boolean isSelected(){
+        return selected;
+    }
+    
+    public Treasure getTreasure(){
+        return treasureModel;
     }
     
     public void setTreasure (Treasure aTreasure) {
@@ -50,6 +60,12 @@ public class TreasureView extends javax.swing.JPanel {
 
         jTextField1.setText("jTextField1");
 
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel1.setText("Nombre:");
 
@@ -59,6 +75,14 @@ public class TreasureView extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel3.setText("Tipo:");
 
+        jTextNombre.setDisabledTextColor(new java.awt.Color(1, 1, 1));
+        jTextNombre.setEnabled(false);
+
+        jTextBonus.setDisabledTextColor(new java.awt.Color(1, 1, 1));
+        jTextBonus.setEnabled(false);
+
+        jTextTipo.setDisabledTextColor(new java.awt.Color(1, 1, 1));
+        jTextTipo.setEnabled(false);
         jTextTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextTipoActionPerformed(evt);
@@ -108,6 +132,14 @@ public class TreasureView extends javax.swing.JPanel {
     private void jTextTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextTipoActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        selected = (selected == false);
+        this.setBackground(Color.blue);
+        this.setOpaque(selected);
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
