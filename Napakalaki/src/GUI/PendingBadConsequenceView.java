@@ -24,6 +24,9 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         pendingBadConsequenceModel = aBadConsequence;
         if( pendingBadConsequenceModel != null )
             this.jTextAreabadconsequence.setText (pendingBadConsequenceModel.toString());
+        else{
+            this.jTextAreabadconsequence.setText("");
+        }
         repaint();
     } 
 

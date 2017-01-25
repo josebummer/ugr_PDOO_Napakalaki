@@ -34,9 +34,9 @@ public class TreasureView extends javax.swing.JPanel {
         // se actualiza el atributo de referencia
         treasureModel = aTreasure;
         // se actualiza la vista del tesoro, por ejemplo
-        this.jTextNombre.setText (treasureModel.getName());
-        this.jTextBonus.setText (Integer.toString(treasureModel.getBonus()));
-        this.jTextTipo.setText (treasureModel.getType().name());
+        this.jTextFieldnombre.setText(treasureModel.getName());
+        this.jTextFieldbonus.setText(Integer.toString(treasureModel.getBonus()));
+        this.Tipo.setText(treasureModel.getType().name());
         // la siguiente instrucción hace que los cambios en la vista sean efectivos
         repaint();
     }   
@@ -54,84 +54,66 @@ public class TreasureView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextNombre = new javax.swing.JTextField();
-        jTextBonus = new javax.swing.JTextField();
-        jTextTipo = new javax.swing.JTextField();
+        jTextFieldnombre = new javax.swing.JTextField();
+        jTextFieldbonus = new javax.swing.JTextField();
+        Tipo = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
+        setBorder(new javax.swing.border.MatteBorder(null));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel1.setText("Nombre:");
 
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel2.setText("Bonus:");
 
-        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 18)); // NOI18N
         jLabel3.setText("Tipo:");
 
-        jTextNombre.setDisabledTextColor(new java.awt.Color(1, 1, 1));
-        jTextNombre.setEnabled(false);
+        jTextFieldnombre.setEditable(false);
 
-        jTextBonus.setDisabledTextColor(new java.awt.Color(1, 1, 1));
-        jTextBonus.setEnabled(false);
+        jTextFieldbonus.setEditable(false);
 
-        jTextTipo.setDisabledTextColor(new java.awt.Color(1, 1, 1));
-        jTextTipo.setEnabled(false);
-        jTextTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextTipoActionPerformed(evt);
-            }
-        });
+        Tipo.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldnombre)
+                    .addComponent(jTextFieldbonus)
+                    .addComponent(Tipo, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                    .addComponent(jTextFieldnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                    .addComponent(jTextFieldbonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addComponent(Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextTipoActionPerformed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
@@ -143,12 +125,12 @@ public class TreasureView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Tipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextBonus;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextNombre;
-    private javax.swing.JTextField jTextTipo;
+    private javax.swing.JTextField jTextFieldbonus;
+    private javax.swing.JTextField jTextFieldnombre;
     // End of variables declaration//GEN-END:variables
 }

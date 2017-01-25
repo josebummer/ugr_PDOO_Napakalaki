@@ -181,7 +181,7 @@ public class Player {
         
         if( !canISteal ){
             Dice dice = Dice.getInstance();
-            int number = dice.nextNumber();
+            int number = dice.nextNumber("Vamos a tirar el dado","Para combatir.");
             if( number < 3 ){
                 int enemyLevel = enemy.getCombatLevel();
                 monsterLevel += enemyLevel;
@@ -254,7 +254,7 @@ public class Player {
        Treasure treasure = dealer.nextTreasure();
        hiddenTreasures.add(treasure);
        
-       int number = dice.nextNumber();
+       int number = dice.nextNumber("Tire el dado","Suerte con el 6");
        if( number > 1 ){
            treasure = dealer.nextTreasure();
            hiddenTreasures.add(treasure);
@@ -339,7 +339,7 @@ public class Player {
     
     protected boolean shouldConvert(){
         Dice dice = Dice.getInstance();
-        int number = dice.nextNumber();
+        int number = dice.nextNumber("Has perdido el combate","A ver si te conviertes en sectario");
         if( number == 6 ){
             return true;
         }
@@ -348,7 +348,7 @@ public class Player {
     
     
     public String toString(){
-        return "\nNombre: " + name + " Nivel: " + Integer.toString(level) + " Nivel de combate: " + this.getCombatLevel() +
+        return "Nombre: " + name + "\nNivel: " + Integer.toString(level) + "\nNivel de combate: " + this.getCombatLevel() +
                 "\nMuerte: " + dead + "\nPuede robar: " + canISteal + "\nEnemigo: " + enemy.getName() + "\n";
     }
 }

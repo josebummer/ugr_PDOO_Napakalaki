@@ -52,6 +52,6 @@ public class Monster {
         return buenrollo;
     }
     public String toString(){
-        return "Nombre: " + name + " Nivel de combate: " + Integer.toString(level) + ", Nivel de combate SECTARIOS: " + getCombatLevelAgainstCultistPlayer() + "\n";
+        return "Nombre: " + name + "\nNivel de combate: " + Integer.toString(level) + "\nNivel de combate SECTARIOS: " + getCombatLevelAgainstCultistPlayer() + "\n";
     }
 }
