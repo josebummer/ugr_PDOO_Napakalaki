@@ -144,7 +144,7 @@ public class CardDealer {
         Prize prize18 = new Prize(2,1);
         unusedMonsters.add(new Monster("Tongue",19,bc18,prize18));
 
-        SpecificBadConsequence bc19 = new SpecificBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS,TreasureKind.ONEHAND)),new ArrayList());
+        SpecificBadConsequence bc19 = new SpecificBadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos",3,new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS,TreasureKind.ONEHAND,TreasureKind.ONEHAND)),new ArrayList());
         Prize prize19 = new Prize(2,1);
         unusedMonsters.add(new Monster("Bicéfalo",21,bc19,prize19));
         
