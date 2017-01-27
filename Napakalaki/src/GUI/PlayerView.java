@@ -28,8 +28,6 @@ public class PlayerView extends javax.swing.JPanel {
     public void setPlayer(Player aPlayer){
         playerModel = aPlayer;
         this.jTextPlayer.setText(playerModel.toString());
-        //this.visibleTreasures.setToolTipText(playerModel.getVisibleTreasures().toString());
-        //this.hiddenTreasures.setToolTipText(playerModel.getHiddenTreasures().toString());
         fillTreasurePanel (visibleTreasures, playerModel.getVisibleTreasures());
         fillTreasurePanel (hiddenTreasures, playerModel.getHiddenTreasures());
         this.pendingBadConsequenceView.setPendingBadConsequence(playerModel.getPendingBadConsequence());
@@ -40,7 +38,10 @@ public class PlayerView extends javax.swing.JPanel {
     public void botonesCombat(boolean t){
         this.jButtondescartar.setEnabled(t);
         this.jButtondescartar2.setEnabled(t);
-        this.jButtonrobar.setEnabled(t);
+        if( t && playerModel.canISteal() )
+            this.jButtonrobar.setEnabled(true);
+        else
+            this.jButtonrobar.setEnabled(false);
         this.jButtontodostesoros.setEnabled(t);
         this.jButtonvisible.setEnabled(t);
     }
@@ -48,7 +49,10 @@ public class PlayerView extends javax.swing.JPanel {
     public void botonesNext(){
         this.jButtondescartar.setEnabled(false);
         this.jButtondescartar2.setEnabled(false);
-        this.jButtonrobar.setEnabled(false);
+        if( playerModel.canISteal() )
+            this.jButtonrobar.setEnabled(true);
+        else
+            this.jButtonrobar.setEnabled(false);
         this.jButtontodostesoros.setEnabled(false);
         this.jButtonvisible.setEnabled(true);
     }
@@ -128,7 +132,6 @@ public class PlayerView extends javax.swing.JPanel {
 
         jButtonrobar.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
         jButtonrobar.setText("Robar Tesoro");
-        jButtonrobar.setEnabled(false);
         jButtonrobar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonrobarActionPerformed(evt);
@@ -239,6 +242,11 @@ public class PlayerView extends javax.swing.JPanel {
 
     private void jButtonrobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonrobarActionPerformed
         // TODO add your handling code here:
+        if( playerModel.canISteal() ){
+            if((playerModel.stealTreasure()) != null)
+                this.jButtonrobar.setEnabled(false);
+        }
+        this.setPlayer(playerModel);
     }//GEN-LAST:event_jButtonrobarActionPerformed
 
     private void jButtonvisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvisibleActionPerformed

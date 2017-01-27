@@ -48,6 +48,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         jTextArearesultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
 
         playerView1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -171,19 +172,19 @@ public class NapakalakiView extends javax.swing.JFrame {
         if(napakalakiModel.getCurrentPlayer() == null){
             this.jButtonnext.setEnabled(false);
             this.jButtoncombat.setEnabled(false);
-            this.playerView1.botonesNext();
             this.jTextArearesultado.setVisible(false);
             napakalakiModel.nextTurn();
-            setNapakalaki(napakalakiModel);  
+            setNapakalaki(napakalakiModel); 
+            this.playerView1.botonesNext();
         }
         else{
             if( napakalakiModel.getCurrentPlayer().validState() ){
                 this.jButtonnext.setEnabled(false);
                 this.jButtoncombat.setEnabled(false);
-                this.playerView1.botonesNext();
                 this.jTextArearesultado.setVisible(false);
                 napakalakiModel.nextTurn();
                 setNapakalaki(napakalakiModel);
+                this.playerView1.botonesNext();
             }
             else{
                 this.jTextArearesultado.setText("No cumples las condiciones para pasar de turno.");

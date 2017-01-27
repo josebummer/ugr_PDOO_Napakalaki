@@ -32,7 +32,7 @@ public class Player {
         level = 0;
         hiddenTreasures = new ArrayList();
         visibleTreasures = new ArrayList();
-        canISteal = false;
+        canISteal = true;
         dead = true;
         pendingBadConsequence = null;
     }
