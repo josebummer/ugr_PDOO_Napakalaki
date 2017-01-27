@@ -47,9 +47,11 @@ public class PrizeView extends javax.swing.JPanel {
 
         jLabel2.setText("Niveles Ganados:");
 
+        jTexttesoros.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
         jTexttesoros.setDisabledTextColor(new java.awt.Color(1, 1, 1));
         jTexttesoros.setEnabled(false);
 
+        jTextniveles.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
         jTextniveles.setDisabledTextColor(new java.awt.Color(1, 1, 1));
         jTextniveles.setEnabled(false);
 
@@ -66,9 +68,9 @@ public class PrizeView extends javax.swing.JPanel {
                         .addComponent(jTexttesoros, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextniveles, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

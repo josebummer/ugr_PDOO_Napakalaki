@@ -92,16 +92,25 @@
     <Component class="javax.swing.JTextField" name="jTextFieldnombre">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="10" style="2"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldbonus">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="10" style="2"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Tipo">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="10" style="2"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

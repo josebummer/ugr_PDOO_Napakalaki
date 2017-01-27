@@ -74,10 +74,13 @@ public class TreasureView extends javax.swing.JPanel {
         jLabel3.setText("Tipo:");
 
         jTextFieldnombre.setEditable(false);
+        jTextFieldnombre.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
 
         jTextFieldbonus.setEditable(false);
+        jTextFieldbonus.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
 
         Tipo.setEditable(false);
+        Tipo.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

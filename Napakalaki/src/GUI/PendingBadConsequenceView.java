@@ -46,6 +46,7 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         jLabel1.setText("PendingBadConsequence:");
 
         jTextAreabadconsequence.setColumns(20);
+        jTextAreabadconsequence.setFont(new java.awt.Font("Noto Sans", 2, 10)); // NOI18N
         jTextAreabadconsequence.setRows(5);
         jTextAreabadconsequence.setDisabledTextColor(new java.awt.Color(1, 1, 1));
         jTextAreabadconsequence.setEnabled(false);
