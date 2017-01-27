@@ -100,7 +100,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(monsterView1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonmostrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtoncombat)
@@ -109,7 +109,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(jLabelres)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -120,13 +120,15 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addComponent(monsterView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelres)
-                        .addComponent(jButtonmostrar)
-                        .addComponent(jButtoncombat)
-                        .addComponent(jButtonnext))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelres)
+                            .addComponent(jButtonmostrar)
+                            .addComponent(jButtoncombat)
+                            .addComponent(jButtonnext))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -162,8 +164,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         this.jButtoncombat.setEnabled(false);
         this.playerView1.botonesCombat(true);
         this.jButtonnext.setEnabled(true);
-        this.jLabelres.setVisible(true);
-        this.jTextArearesultado.setVisible(true);
         setNapakalaki(napakalakiModel);
     }//GEN-LAST:event_jButtoncombatActionPerformed
 
@@ -172,8 +172,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         if(napakalakiModel.getCurrentPlayer() == null){
             this.jButtonnext.setEnabled(false);
             this.jButtoncombat.setEnabled(false);
-            this.jTextArearesultado.setVisible(false);
             napakalakiModel.nextTurn();
+            this.jTextArearesultado.setText("");
             setNapakalaki(napakalakiModel); 
             this.playerView1.botonesNext();
         }
@@ -181,8 +181,8 @@ public class NapakalakiView extends javax.swing.JFrame {
             if( napakalakiModel.getCurrentPlayer().validState() ){
                 this.jButtonnext.setEnabled(false);
                 this.jButtoncombat.setEnabled(false);
-                this.jTextArearesultado.setVisible(false);
                 napakalakiModel.nextTurn();
+                this.jTextArearesultado.setText("");
                 setNapakalaki(napakalakiModel);
                 this.playerView1.botonesNext();
             }
